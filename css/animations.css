@@ -1,0 +1,110 @@
+/* Scroll-driven animations and interactive keyframe animations */
+
+/* General entrance animation (immediate load) */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-island {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+/* Application class helpers for base loading */
+.anim-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.anim-slide-up {
+  animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.floating-island-container {
+  animation: float-island 6s ease-in-out infinite;
+}
+
+/* Delay modifiers for loading sequence in Hero */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+
+/* ==============================================================
+   SCROLL-DRIVEN ENTRANCE EFFECTS (CSS view-timeline)
+   ============================================================== */
+@keyframes scroll-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-scale-up {
+  from {
+    opacity: 0;
+    scale: 0.95;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+/* Progressive enhancement with CSS scroll timeline */
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    .scroll-reveal {
+      animation: scroll-reveal-up auto linear backwards;
+      animation-timeline: view();
+      animation-range: entry 10% cover 30%;
+    }
+
+    .scroll-scale {
+      animation: scroll-scale-up auto linear backwards;
+      animation-timeline: view();
+      animation-range: entry 5% cover 25%;
+    }
+  }
+}
+
+/* If the browser fallback runs, we'll toggle the active state via IntersectionObserver in js/ui.js */
+.intersection-target {
+  opacity: 1; /* default when CSS supports is not matched, handled by JS fallback */
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.no-scroll-timeline .intersection-target {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.no-scroll-timeline .intersection-target.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Metadata -->
+  <title>HarmoniGrid - Escribe música en segundos</title>
+  <meta name="description" content="HarmoniGrid te ayuda a crear, organizar y compartir armonías, letras y estructuras musicales de forma rápida, educativa y accesible desde cualquier lugar.">
+  <meta name="keywords" content="music composition app, songwriting app, songwriting tool, chord progression editor, chord chart creator, music theory app, harmony learning, music education, music scales, music modes, worship chord charts, church music tools, worship music planning, musician tools, song structure builder, chord progression planner, music sketchbook">
+  <meta name="author" content="HarmoniGrid">
+  <link rel="canonical" href="https://harmonigrid.com/">
+
+  <!-- Core Web Vitals optimizations: Preload critical assets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Preload Logo (LCP optimization) -->
+  <link rel="preload" href="https://res.cloudinary.com/dhgifjpkh/image/upload/v1782528861/compressed_53dbe0cc-413d-4913-88ef-b1a4cb6930ee_vjrjve.webp" as="image" fetchpriority="high">
+
+  <!-- Multi-lingual SEO Alternate hreflangs (6 languages) -->
+  <link rel="alternate" hreflang="x-default" href="https://harmonigrid.com/">
+  <link rel="alternate" hreflang="es" href="https://harmonigrid.com/?lang=es">
+  <link rel="alternate" hreflang="en" href="https://harmonigrid.com/?lang=en">
+  <link rel="alternate" hreflang="pt" href="https://harmonigrid.com/?lang=pt">
+  <link rel="alternate" hreflang="fr" href="https://harmonigrid.com/?lang=fr">
+  <link rel="alternate" hreflang="de" href="https://harmonigrid.com/?lang=de">
+  <link rel="alternate" hreflang="it" href="https://harmonigrid.com/?lang=it">
+
+  <!-- OpenGraph Metadata for Social Platforms -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="HarmoniGrid - Escribe música en segundos">
+  <meta property="og:description" content="La forma más rápida de capturar, organizar y entender tus ideas musicales de forma accesible y educativa.">
+  <meta property="og:url" content="https://harmonigrid.com/">
+  <meta property="og:image" content="https://res.cloudinary.com/dhgifjpkh/image/upload/v1782528861/compressed_53dbe0cc-413d-4913-88ef-b1a4cb6930ee_vjrjve.webp">
+  
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HarmoniGrid - Escribe música en segundos">
+  <meta name="twitter:description" content="Captura tus progresiones armónicas en segundos sin fricciones.">
+  <meta name="twitter:image" content="https://res.cloudinary.com/dhgifjpkh/image/upload/v1782528861/compressed_53dbe0cc-413d-4913-88ef-b1a4cb6930ee_vjrjve.webp">
+
+  <!-- Schema.org Structured Data: JSON-LD Web App Representation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HarmoniGrid",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Web, Android, iOS",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },
+    "description": "La forma más rápida de capturar, organizar y entender tus ideas musicales.",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "250"
+    }
+  }
+  </script>
+
+  <!-- Cascading Style Sheets -->
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/animations.css">
+  
+  <!-- Inline App-Mockup-Specific Styles for Maximum Layout Stability (prevents FOUC on mockups) -->
+  <style>
+    .app-mockup {
+      background-color: #ffffff;
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl);
+      padding: var(--spacing-md);
+      font-size: 0.75rem;
+      color: var(--color-dark);
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      display: flex;
+      flex-direction: column;
+    }
+    .mockup-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: var(--spacing-sm);
+      border-bottom: 1px solid var(--color-gray-100);
+      margin-bottom: var(--spacing-sm);
+    }
+    .mockup-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .mockup-tabs {
+      display: flex;
+      gap: var(--spacing-sm);
+      color: var(--color-dark-muted);
+    }
+    .mockup-tab--active {
+      color: var(--color-primary);
+      font-weight: 700;
+      border-bottom: 2px solid var(--color-primary);
+    }
+    .mockup-body {
+      display: flex;
+      gap: var(--spacing-sm);
+      flex-grow: 1;
+    }
+    .mockup-grid {
+      flex: 3;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 6px;
+    }
+    .mockup-cell {
+      border: 1px dashed var(--color-gray-200);
+      border-radius: var(--radius-xs);
+      background-color: var(--color-gray-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-fast);
+    }
+    .mockup-cell--chord {
+      border: 1px solid hsla(var(--color-primary-hsl), 0.3);
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+    .mockup-cell:hover {
+      border-color: var(--color-primary);
+      background-color: var(--color-primary-light);
+      cursor: pointer;
+    }
+    .mockup-sidebar {
+      flex: 1.2;
+      background-color: var(--color-gray-50);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-sm);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+    .mockup-card-title {
+      font-weight: 800;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-dark-muted);
+    }
+    .mockup-detector-result {
+      background-color: var(--color-light);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-sm);
+      padding: var(--spacing-xs);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .detector-value {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--color-primary);
+    }
+    .mockup-suggestions {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 0.65rem;
+    }
+    .mockup-suggestion-item {
+      padding: 4px;
+      background-color: var(--color-light);
+      border: 1px solid var(--color-gray-100);
+      border-radius: var(--radius-xs);
+      display: flex;
+      justify-content: space-between;
+    }
+    @media (max-width: 600px) {
+      .app-mockup {
+        aspect-ratio: auto;
+        height: 320px;
+      }
+      .mockup-sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       NAVIGATION HEADER
+       ========================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <a href="#" class="nav-brand" aria-label="HarmoniGrid Homepage">
+        <img src="https://res.cloudinary.com/dhgifjpkh/image/upload/v1782528861/compressed_53dbe0cc-413d-4913-88ef-b1a4cb6930ee_vjrjve.webp" alt="HarmoniGrid Logo" width="40" height="40">
+        <span>HarmoniGrid</span>
+      </a>
+
+      <!-- Main Navigation Menu -->
+      <nav aria-label="Navegación principal">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#funciones" class="nav-link" data-i18n="nav-features">Funciones</a></li>
+          <li><a href="#estructura" class="nav-link" data-i18n="nav-structure">Estructura</a></li>
+          <li><a href="#casos" class="nav-link" data-i18n="nav-usecases">Casos de uso</a></li>
+          <li><a href="#precios" class="nav-link" data-i18n="nav-pricing">Precios</a></li>
+          <li><a href="#road-feed" class="nav-link" data-i18n="nav-resources">Recursos</a></li>
+          <li><a href="#aprende" class="nav-link" data-i18n="nav-about">Acerca de</a></li>
+          <!-- Mobile view items -->
+          <li class="nav-actions-mobile">
+            <a href="https://app.harmonigrid.com" class="btn btn-outline" data-i18n="btn-open-app">Abrir aplicación</a>
+            <a href="#precios" class="btn btn-primary" data-i18n="btn-join-pro">Únete a Pro - 14 días gratis</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Multi-lingual Switcher Selector -->
+        <div class="lang-selector">
+          <button class="lang-select-btn" id="lang-select-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Cambiar idioma">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-languages"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+            <span id="active-lang-text">Español</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown" id="lang-dropdown" role="listbox">
+            <div class="lang-option active" data-lang="es" role="option">Español</div>
+            <div class="lang-option" data-lang="en" role="option">English</div>
+            <div class="lang-option" data-lang="pt" role="option">Português</div>
+            <div class="lang-option" data-lang="fr" role="option">Français</div>
+            <div class="lang-option" data-lang="de" role="option">Deutsch</div>
+            <div class="lang-option" data-lang="it" role="option">Italiano</div>
+          </div>
+        </div>
+
+        <a href="https://app.harmonigrid.com" class="btn btn-outline" data-i18n="btn-open-app">Abrir aplicación</a>
+        <a href="#precios" class="btn btn-primary" data-i18n="btn-join-pro">Únete a Pro - 14 días gratis</a>
+      </div>
+
+      <!-- Burger Menu Trigger -->
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Menu" aria-controls="nav-links" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main style="margin-top: var(--header-height);">
+    <!-- ==========================================
+         HERO SECTION (PRINCIPAL)
+         ========================================== -->
+    <section class="section-padding anim-fade-in" style="background-color: var(--color-gray-50); border-bottom: 1px solid var(--color-gray-100);">
+      <div class="container grid-2" style="align-items: center;">
+        
+        <!-- Left Side copy column -->
+        <div class="hero-content">
+          <div class="section-tag anim-slide-up delay-1">
+            <span data-i18n="hero-badge">Nuevo</span> · <span data-i18n="hero-badge-text">Captura, organiza y comprende tus ideas.</span>
+          </div>
+          <h1 class="section-title anim-slide-up delay-2" style="font-size: 2.75rem; margin-bottom: var(--spacing-lg);" data-i18n="hero-title">
+            La forma más rápida de capturar, organizar y comprender tus ideas musicales.
+          </h1>
+          <p class="section-subtitle anim-slide-up delay-3" style="margin-bottom: var(--spacing-xl);" data-i18n="hero-subtitle">
+            HarmoniGrid te ayuda a crear, organizar y compartir armonías, letras y estructuras musicales de forma rápida, educativa y accesible desde cualquier lugar.
+          </p>
+          
+          <div class="hero-actions anim-slide-up delay-3" style="display: flex; gap: var(--spacing-md); margin-bottom: var(--spacing-xl); flex-wrap: wrap;">
+            <a href="https://app.harmonigrid.com" class="btn btn-primary btn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              <span data-i18n="btn-hero-primary">Abrir HarmoniGrid</span>
+            </a>
+            <a href="#funciones" class="btn btn-outline btn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+              <span data-i18n="btn-hero-secondary">Ver funciones</span>
+            </a>
+          </div>
+
+          <!-- Bullet tags indicators -->
+          <div class="hero-bullets anim-slide-up delay-3" style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
+            <div class="hero-bullet" style="display: flex; align-items: center; gap: var(--spacing-xs); font-size: 0.85rem; font-weight: 700; color: var(--color-dark-muted);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="tag-musicians">Diseñada para músicos</span>
+            </div>
+            <div class="hero-bullet" style="display: flex; align-items: center; gap: var(--spacing-xs); font-size: 0.85rem; font-weight: 700; color: var(--color-dark-muted);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="tag-educational">Educativo y práctico</span>
+            </div>
+            <div class="hero-bullet" style="display: flex; align-items: center; gap: var(--spacing-xs); font-size: 0.85rem; font-weight: 700; color: var(--color-dark-muted);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="tag-lightweight">Ligero y rápido</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side HTML/CSS dashboard mockup -->
+        <div class="hero-visual anim-slide-up delay-2" style="position: relative;">
+          
+          <!-- Interactive Widget tabs beside mockup -->
+          <div class="mockup-side-tabs" style="position: absolute; left: -60px; top: 20%; display: flex; flex-direction: column; gap: var(--spacing-sm); z-index: 10;">
+            <button class="btn btn-light-green" style="padding: 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem;" data-i18n="widget-tab-capture" title="Capturar">Capturar</button>
+            <button class="btn btn-outline" style="padding: 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem; background: #fff;" data-i18n="widget-tab-lyrics" title="Letras">Letras</button>
+            <button class="btn btn-outline" style="padding: 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem; background: #fff;" data-i18n="widget-tab-progressions" title="Progresiones">Progresiones</button>
+            <button class="btn btn-outline" style="padding: 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem; background: #fff;" data-i18n="widget-tab-scales" title="Escalas">Escalas</button>
+            <button class="btn btn-outline" style="padding: 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem; background: #fff;" data-i18n="widget-tab-export" title="Exportar">Exportar</button>
+          </div>
+
+          <div class="app-mockup">
+            <div class="mockup-nav">
+              <div style="display: flex; align-items: center; gap: var(--spacing-xs);">
+                <span style="display: inline-block; width: 8px; height: 8px; background-color: #ef4444; border-radius: var(--radius-full);"></span>
+                <span style="display: inline-block; width: 8px; height: 8px; background-color: #f59e0b; border-radius: var(--radius-full);"></span>
+                <span style="display: inline-block; width: 8px; height: 8px; background-color: #10b981; border-radius: var(--radius-full);"></span>
+                <span class="mockup-title" style="margin-left: var(--spacing-sm);">Mis Sesiones / Harmonigrid</span>
+              </div>
+              <div class="mockup-tabs">
+                <span class="mockup-tab--active">Todos</span>
+                <span>Sin etiqueta</span>
+                <span>Archivados</span>
+              </div>
+            </div>
+            
+            <div class="mockup-body">
+              <div class="mockup-grid">
+                <!-- Row 1 chords -->
+                <div class="mockup-cell mockup-cell--chord">Lam</div>
+                <div class="mockup-cell"></div>
+                <div class="mockup-cell"></div>
+                <div class="mockup-cell"></div>
+                <!-- Row 2 chords -->
+                <div class="mockup-cell mockup-cell--chord">Rem</div>
+                <div class="mockup-cell"></div>
+                <div class="mockup-cell"></div>
+                <div class="mockup-cell"></div>
+                <!-- Row 3 chords -->
+                <div class="mockup-cell mockup-cell--chord">SolM</div>
+                <div class="mockup-cell"></div>
+                <div class="mockup-cell"></div>
+                <div class="mockup-cell"></div>
+                <!-- Row 4 chords -->
+                <div class="mockup-cell mockup-cell--chord">DoM</div>
+                <div class="mockup-cell"></div>
+                <div class="mockup-cell"></div>
+                <div class="mockup-cell"></div>
+              </div>
+              
+              <div class="mockup-sidebar">
+                <span class="mockup-card-title">Detector de Clave</span>
+                <div class="mockup-detector-result">
+                  <span style="font-size: 0.6rem; color: var(--color-dark-muted);">Clave Detectada</span>
+                  <span class="detector-value">La Menor (Am)</span>
+                  <span style="font-size: 0.55rem; color: var(--color-success); font-weight: 700;">Confianza: Alta (95%)</span>
+                </div>
+                <span class="mockup-card-title">Sugerencias</span>
+                <ul class="mockup-suggestions">
+                  <li class="mockup-suggestion-item"><span>Relativo:</span> <strong>Do Mayor</strong></li>
+                  <li class="mockup-suggestion-item"><span>Modo:</span> <strong>Paralelo</strong></li>
+                  <li class="mockup-suggestion-item"><span>Dominante:</span> <strong>Mi Mayor</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Social Proof Trust Bar -->
+      <div class="container social-proof anim-slide-up delay-3">
+        <div class="avatar-stack">
+          <!-- Multi-gradient clean user avatars mimicking photo badges -->
+          <span style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); border: 2px solid #fff; margin-left: -8px;"></span>
+          <span style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); border: 2px solid #fff; margin-left: -8px;"></span>
+          <span style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); border: 2px solid #fff; margin-left: -8px;"></span>
+          <span style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); border: 2px solid #fff; margin-left: -8px;"></span>
+          <span style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #a6c0fe 0%, #f1eefc 100%); border: 2px solid #fff; margin-left: -8px;"></span>
+        </div>
+        <div class="social-proof-text" data-i18n="social-proof-text">
+          Con la confianza de miles de músicos y creadores en todo el mundo. Más de <strong>2,500 miembros</strong> creando algo extraordinario cada día.
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 1: ¿POR QUÉ EXISTE?
+         ========================================== -->
+    <section class="section-padding scroll-reveal" id="estructura" style="background-color: var(--color-light);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="sec1-tag">Porque creamos esto</span>
+          <h2 class="section-title" data-i18n="sec1-title">Diseñado para músicos modernos.</h2>
+          <p class="section-subtitle">
+            Muchas ideas musicales se pierden porque las herramientas tradicionales son demasiado complejas para capturarlas rápidamente. HarmoniGrid nace para resolver ese problema.
+          </p>
+        </div>
+
+        <div class="grid-3" style="margin-bottom: var(--spacing-3xl);">
+          <div class="card">
+            <div class="card-icon">
+              <!-- Fast Zap icon -->
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3 class="card-title" data-i18n="sec1-card1-title">Rápido</h3>
+            <p class="card-desc" data-i18n="sec1-card1-desc">
+              Captura ideas en segundos con nuestra cuadrícula en vivo. Sin fricción, solo flujo y enfoque creativo.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <!-- Book Academic icon -->
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+            </div>
+            <h3 class="card-title" data-i18n="sec1-card2-title">Educativo</h3>
+            <p class="card-desc" data-i18n="sec1-card2-desc">
+              Aprende teoría mientras creas. Niveles de armonía, escalas e ideas progresivas en contexto.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <!-- Collab users icon -->
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="card-title" data-i18n="sec1-card3-title">Colaborativo</h3>
+            <p class="card-desc" data-i18n="sec1-card3-desc">
+              Comparte, exporta y colabora con otros músicos. Tu creatividad merece ser escuchada.
+            </p>
+          </div>
+        </div>
+
+        <!-- Comparative interactive timeline sequence -->
+        <h3 class="section-title" style="font-size: 1.5rem; text-align: center; margin-bottom: var(--spacing-sm);" data-i18n="sec1-flow-title">El camino de la inspiración</h3>
+        <div class="flow-container">
+          <div class="flow-step">
+            <div class="flow-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .6 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><line x1="9" x2="15" y1="18" y2="18"/><line x1="10" x2="14" y1="22" y2="22"/></svg>
+            </div>
+            <span class="flow-title" data-i18n="flow-step1-title">Idea musical</span>
+            <span class="flow-subtitle" data-i18n="flow-step1-desc">Idea flotando en tu mente</span>
+          </div>
+
+          <div class="flow-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+            </div>
+            <span class="flow-title" data-i18n="flow-step2-title">HarmoniGrid</span>
+            <span class="flow-subtitle" data-i18n="flow-step2-desc">(En 30 segundos)</span>
+          </div>
+
+          <div class="flow-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+
+          <div class="flow-step">
+            <div class="flow-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <span class="flow-title" data-i18n="flow-step3-title">Bosquejo listo</span>
+            <span class="flow-subtitle" data-i18n="flow-step3-desc">Estructura lista para sonar</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: CASOS REALES DE USO
+         ========================================== -->
+    <section class="section-padding scroll-scale" id="casos" style="background-color: var(--color-gray-50); border-top: 1px solid var(--color-gray-100); border-bottom: 1px solid var(--color-gray-100);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="sec2-tag">Para cada etapa</span>
+          <h2 class="section-title" data-i18n="sec2-title">Para cada músico y en cada etapa.</h2>
+          <p class="section-subtitle">Descubre cómo diferentes profesionales y entusiastas utilizan la cuadrícula de HarmoniGrid en su día a día.</p>
+        </div>
+
+        <div class="grid-6">
+          <div class="card">
+            <div class="card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+            <h3 class="card-title" data-i18n="sec2-case1-title">Compositores de canciones</h3>
+            <p class="card-desc" data-i18n="sec2-case1-desc">Estructura tus ideas y convierte la inspiración en canciones terminadas rápidamente.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10H12Fz"/><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
+            <h3 class="card-title" data-i18n="sec2-case2-title">Productores y beatmakers</h3>
+            <p class="card-desc" data-i18n="sec2-case2-desc">Organiza tus loops, melodías y progresiones en una cuadrícula virtual intuitiva.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3Z"/><path d="M6 21a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3v12a3 3 0 0 0 3 3Z"/></svg></div>
+            <h3 class="card-title" data-i18n="sec2-case3-title">Creadores de iglesia</h3>
+            <p class="card-desc" data-i18n="sec2-case3-desc">Planifica sets, transporta tonalidades de armonías y transiciones con total facilidad.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h20v14H2z"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+            <h3 class="card-title" data-i18n="sec2-case4-title">Profesores de música</h3>
+            <p class="card-desc" data-i18n="sec2-case4-desc">Enseña teoría visualmente en clases grupales y guía mejor a tus estudiantes.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3 class="card-title" data-i18n="sec2-case5-title">Equipos y colaboradores</h3>
+            <p class="card-desc" data-i18n="sec2-case5-desc">Co-crea con tu banda de jam sessions y mantén la estructura musical sincronizada.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10v6"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg></div>
+            <h3 class="card-title" data-i18n="sec2-case6-title">Instituciones académicas</h3>
+            <p class="card-desc" data-i18n="sec2-case6-desc">Apoie a educação de harmonias e modos em conservatórios e escolas de música.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3 & 4: PRECIOS & FUNCIONES FREE
+         ========================================== -->
+    <section class="section-padding scroll-reveal" id="precios" style="background-color: var(--color-light);">
+      <div class="container grid-2" style="align-items: center; gap: var(--spacing-3xl);">
+        
+        <!-- Left Side pricing column boards -->
+        <div class="pricing-section">
+          
+          <!-- Free Tier -->
+          <div class="price-card">
+            <span class="price-badge" data-i18n="pricing-free-sub">Para siempre</span>
+            <div class="price-name" data-i18n="pricing-free-title">Gratis</div>
+            <div class="price-amount">$0<span class="price-period">/m</span></div>
+            
+            <ul class="price-list">
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-harmonic-schemes">Esquemas armónicos</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-lyrics">Letras e indicaciones</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-sync-lyrics">Letras sincronizadas</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-major-scales">Escalas mayores</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-minor-scales">Escalas menores</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-sections-org">Organización por secciones</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-repetitions">Repeticiones de compases</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-basic-export">Exportación básica (.txt)</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-max-bars">Hasta 20 compases por canción</span>
+              </li>
+            </ul>
+            
+            <a href="https://app.harmonigrid.com" class="btn btn-outline" data-i18n="btn-use-free">Usar gratis</a>
+          </div>
+
+          <!-- PRO Tier -->
+          <div class="price-card price-card--featured">
+            <span class="price-badge" data-i18n="pricing-pro-sub">14 días gratis</span>
+            <div class="price-name" data-i18n="pricing-pro-title">Pro</div>
+            <div class="price-amount">$8<span class="price-period">/m</span></div>
+            
+            <ul class="price-list">
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-live-grid-unlimited">Cuadrícula en vivo ilimitada</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-advanced-tools">Herramientas avanzadas</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-key-detection">Detección de clave y escala</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-cloud-storage">Almacenamiento en la nube</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-priority-support">Soporte prioritario 24/7</span>
+              </li>
+            </ul>
+            
+            <a href="https://app.harmonigrid.com" class="btn btn-primary" data-i18n="btn-join-pro-card">Unirse a Pro - 14 días gratis</a>
+            <div class="price-card-footnote" data-i18n="pricing-footnote">Cancela en cualquier momento. No se requiere tarjeta de crédito.</div>
+          </div>
+
+        </div>
+
+        <!-- Right Side Features list -->
+        <div class="features-list-area">
+          <span class="section-tag" data-i18n="sec3-tag">Empieza gratis</span>
+          <h3 class="section-title" style="font-size: 2rem;" data-i18n="feat-harmony-title">Potentes herramientas de armonía a tu alcance.</h3>
+          <p class="section-subtitle" style="margin-bottom: var(--spacing-xl);" data-i18n="feat-harmony-desc">Todo lo que necesitas para entender, crear y evolucionar con tu música.</p>
+          
+          <div style="display: grid; gap: var(--spacing-md);">
+            <div style="display: flex; gap: var(--spacing-sm);">
+              <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0; width: 40px; height: 40px;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+              <div>
+                <h4 style="font-weight: 700; font-size: 1rem; color: var(--color-dark);" data-i18n="feat-item-detect-title">Detección de armonía</h4>
+                <p style="font-size: 0.875rem; color: var(--color-dark-muted);" data-i18n="feat-item-detect-desc">Detecta la clave y la escala al instante mientras editas tus compases.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: var(--spacing-sm);">
+              <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0; width: 40px; height: 40px;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
+              <div>
+                <h4 style="font-weight: 700; font-size: 1rem; color: var(--color-dark);" data-i18n="feat-item-scales-title">Escalas y modos</h4>
+                <p style="font-size: 0.875rem; color: var(--color-dark-muted);" data-i18n="feat-item-scales-desc">Explora escalas y modos para cualquier género o combinación.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: var(--spacing-sm);">
+              <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0; width: 40px; height: 40px;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" x2="6" y1="20" y2="4"/><line x1="6" x2="18" y1="20" y2="4"/></svg></div>
+              <div>
+                <h4 style="font-weight: 700; font-size: 1rem; color: var(--color-dark);" data-i18n="feat-item-analysis-title">Análisis de progresiones</h4>
+                <p style="font-size: 0.875rem; color: var(--color-dark-muted);" data-i18n="feat-item-analysis-desc">Visualiza y comprende progresiones al instante.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         INTERACTIVE SYNTHESIZER GRID SECTION (ACTIONABLE DEMO)
+         ========================================== -->
+    <section class="section-padding scroll-scale" id="funciones" style="background-color: var(--color-gray-50); border-top: 1px solid var(--color-gray-100); border-bottom: 1px solid var(--color-gray-100);">
+      <div class="container" style="max-width: 800px;">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="synth-live-badge">En vivo</span>
+          <h2 class="section-title" data-i18n="synth-interactive-title">Prueba el editor en vivo</h2>
+          <p class="section-subtitle" data-i18n="synth-chord-hint">Haz clic en los acordes para escuchar cómo suena el flujo de HarmoniGrid.</p>
+        </div>
+
+        <div class="synth-container">
+          <div class="synth-header">
+            <div class="synth-title-area">
+              <span class="synth-live-badge" data-i18n="synth-live-badge">En vivo</span>
+              <span style="font-weight: 700; font-size: 0.95rem; color: var(--color-dark);">HarmoniGrid Synth</span>
+            </div>
+            
+            <!-- Sound controller setting -->
+            <div class="synth-controls">
+              <div class="synth-control-item">
+                <span data-i18n="synth-osc-type">Tipo de Sonido</span>
+                <select id="synth-osc" class="synth-select" aria-label="Seleccionar oscilador">
+                  <option value="sine" data-i18n="synth-osc-warm">Cálido (Seno)</option>
+                  <option value="triangle" data-i18n="synth-osc-bright">Brillante (Triángulo)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clickable chord grid pads playing synth sound -->
+          <div class="synth-grid">
+            <button class="chord-pad" data-chord="c" aria-label="Acorde Do Mayor">
+              <span class="chord-name">C</span>
+              <span class="chord-degree">I (Do M)</span>
+            </button>
+            <button class="chord-pad" data-chord="am" aria-label="Acorde La Menor">
+              <span class="chord-name">Am</span>
+              <span class="chord-degree">vi (La m)</span>
+            </button>
+            <button class="chord-pad" data-chord="f" aria-label="Acorde Fa Mayor">
+              <span class="chord-name">F</span>
+              <span class="chord-degree">IV (Fa M)</span>
+            </button>
+            <button class="chord-pad" data-chord="g" aria-label="Acorde Sol Mayor">
+              <span class="chord-name">G</span>
+              <span class="chord-degree">V (Sol M)</span>
+            </button>
+            <button class="chord-pad" data-chord="dm" aria-label="Acorde Re Menor">
+              <span class="chord-name">Dm</span>
+              <span class="chord-degree">ii (Re m)</span>
+            </button>
+            <button class="chord-pad" data-chord="em" aria-label="Acorde Mi Menor">
+              <span class="chord-name">Em</span>
+              <span class="chord-degree">iii (Mi m)</span>
+            </button>
+            <button class="chord-pad" data-chord="bb" aria-label="Acorde Si Bemol Mayor">
+              <span class="chord-name">B♭</span>
+              <span class="chord-degree">♭VII (Si♭ M)</span>
+            </button>
+            <button class="chord-pad" data-chord="c7" aria-label="Acorde Do Séptima Dominante">
+              <span class="chord-name">C7</span>
+              <span class="chord-degree">I7 (Do 7)</span>
+            </button>
+          </div>
+
+          <div class="synth-status-bar">
+            <div>
+              <span data-i18n="synth-playing-label">Sonando:</span>
+              <strong id="active-chord-name" style="color: var(--color-primary); font-size: 1rem; margin-left: 4px;">---</strong>
+            </div>
+            <div id="active-notes-display" class="active-notes-display"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: APRENDE MIENTRAS COMPONES
+         ========================================== -->
+    <section class="section-padding scroll-reveal" id="aprende" style="background-color: var(--color-light);">
+      <div class="container grid-2" style="align-items: center;">
+        
+        <!-- Left Side Floating island Illustration drawn in pure CSS / SVG -->
+        <div class="floating-island-area" style="display: flex; justify-content: center;">
+          <div class="floating-island-container" style="width: 320px; height: 320px; position: relative;">
+            <!-- Outer glowing aura -->
+            <div style="position: absolute; width: 240px; height: 240px; background: radial-gradient(circle, rgba(71,193,24,0.15) 0%, rgba(255,255,255,0) 70%); top: 40px; left: 40px; border-radius: 50%;"></div>
+            <!-- Ground island -->
+            <svg viewBox="0 0 200 200" style="width: 100%; height: 100%;">
+              <!-- Island Base -->
+              <path d="M20 120 C 20 90, 180 90, 180 120 C 180 150, 20 150, 20 120 Z" fill="#EEFBE7" stroke="#47C118" stroke-width="2" />
+              <path d="M30 125 C 30 115, 170 115, 170 125 C 170 135, 30 135, 30 125 Z" fill="#D3F5C3" />
+              <!-- Ladder -->
+              <line x1="80" y1="130" x2="80" y2="170" stroke="#8b5a2b" stroke-width="3" />
+              <line x1="95" y1="130" x2="95" y2="170" stroke="#8b5a2b" stroke-width="3" />
+              <line x1="80" y1="140" x2="95" y2="140" stroke="#8b5a2b" stroke-width="2" />
+              <line x1="80" y1="150" x2="95" y2="150" stroke="#8b5a2b" stroke-width="2" />
+              <line x1="80" y1="160" x2="95" y2="160" stroke="#8b5a2b" stroke-width="2" />
+              <!-- Floating Crystal Gem -->
+              <polygon points="100,30 120,70 100,100 80,70" fill="#47C118" opacity="0.85" />
+              <polygon points="100,30 110,70 100,100" fill="#6fe342" />
+              <!-- Music notes flying -->
+              <path d="M 50,70 Q 55,60 60,70" stroke="#47C118" fill="none" stroke-width="2" />
+              <circle cx="50" cy="70" r="3" fill="#47C118" />
+              <path d="M 140,50 Q 145,40 150,50" stroke="#47C118" fill="none" stroke-width="2" />
+              <circle cx="140" cy="50" r="3" fill="#47C118" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Right Side copy -->
+        <div class="learn-text">
+          <span class="section-tag" data-i18n="sec5-tag">Desbloquea tu potencial</span>
+          <h2 class="section-title" data-i18n="sec5-learn-title">Aprende mientras compones</h2>
+          <p class="section-subtitle" style="margin-bottom: var(--spacing-lg);" data-i18n="sec5-learn-desc">
+            No sólo escribes música. También entiendes por qué funciona.
+          </p>
+
+          <!-- Checkmark pills -->
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-sm);">
+            <div style="display: flex; align-items: center; gap: var(--spacing-xs); font-size: 0.95rem; font-weight: 600; color: var(--color-dark-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec5-el-harmonic">Funciones armónicas</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--spacing-xs); font-size: 0.95rem; font-weight: 600; color: var(--color-dark-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec5-el-scales">Escalas</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--spacing-xs); font-size: 0.95rem; font-weight: 600; color: var(--color-dark-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec5-el-modes">Modos</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--spacing-xs); font-size: 0.95rem; font-weight: 600; color: var(--color-dark-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec5-el-cadences">Cadencias</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--spacing-xs); font-size: 0.95rem; font-weight: 600; color: var(--color-dark-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec5-el-modal">Intercambios modales</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--spacing-xs); font-size: 0.95rem; font-weight: 600; color: var(--color-dark-muted);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec5-el-dominants">Dominantes secundarios</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 7: EXPLORA Y DESBLOQUEA
+         ========================================== -->
+    <section class="section-padding scroll-scale" style="background-color: var(--color-gray-50); border-top: 1px solid var(--color-gray-100); border-bottom: 1px solid var(--color-gray-100);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="sec5-tag">Desbloquea tu potencial</span>
+          <h2 class="section-title" data-i18n="sec5-title">Aprende, crea, logra.</h2>
+          <p class="section-subtitle" data-i18n="sec5-subtitle">Herramientas que se adaptan a tu viaje musical.</p>
+        </div>
+
+        <!-- Gamified path block cards -->
+        <div class="game-path-container">
+          
+          <div class="game-card">
+            <div class="game-card-icon">🏆</div>
+            <h3 class="game-card-title" data-i18n="sec7-badge-logros">Logros</h3>
+            <p class="game-card-desc" data-i18n="sec7-desc-logros">Desbloquea insignias y recompensas a medida que creas.</p>
+            <span class="game-card-meta" data-i18n="sec7-meta-logros">Más de 30 logros</span>
+          </div>
+          
+          <div class="game-card">
+            <div class="game-card-icon">🌟</div>
+            <h3 class="game-card-title" data-i18n="sec7-badge-challenges">Desafíos diarios</h3>
+            <p class="game-card-desc" data-i18n="sec7-desc-challenges">Pon a prueba tus habilidades con desafíos a diario.</p>
+            <span class="game-card-meta" data-i18n="sec7-meta-challenges">Nivel 7 jugador</span>
+          </div>
+
+          <div class="game-card">
+            <div class="game-card-icon">📈</div>
+            <h3 class="game-card-title" data-i18n="sec7-badge-mastery">Índice de maestría</h3>
+            <p class="game-card-desc" data-i18n="sec7-desc-mastery">Rastrea tu progreso y mejora constantemente.</p>
+            <span class="game-card-meta" data-i18n="sec7-meta-mastery">65% de dominio</span>
+          </div>
+
+          <div class="game-card">
+            <div class="game-card-icon">⚡</div>
+            <h3 class="game-card-title" data-i18n="sec7-badge-paths">Rutas de progreso</h3>
+            <p class="game-card-desc" data-i18n="sec7-desc-paths">Sigue tu camino desde principiante hasta experto.</p>
+            <span class="game-card-meta" data-i18n="sec7-meta-paths">Nivel 25</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 8 & ROADMAP: AYÚDANOS A CONSTRUIR
+         ========================================== -->
+    <section class="section-padding scroll-reveal" id="road-feed" style="background-color: var(--color-light);">
+      <div class="container grid-3">
+        
+        <!-- Column 1: Suggestion Feedback Form -->
+        <div class="form-card">
+          <h3 class="footer-column-title" style="margin-bottom: var(--spacing-sm);" data-i18n="sec8-future-title">Ayuda a dar forma al futuro.</h3>
+          <p style="font-size: 0.9rem; color: var(--color-dark-muted); margin-bottom: var(--spacing-lg);" data-i18n="sec8-future-desc">
+            HarmoniGrid evoluciona con tus comentarios.
+          </p>
+
+          <!-- Banner alerts -->
+          <div class="form-notification form-notification--success"></div>
+          <div class="form-notification form-notification--error"></div>
+          
+          <form id="feedback-form" action="#" method="POST" novalidate>
+            <!-- Honeypot anti-spam trap field -->
+            <input type="text" name="website_url" autocomplete="off" tabindex="-1" style="display:none">
+
+            <div class="form-group">
+              <label class="form-label" for="fb-name" data-i18n="modal-label-name">Nombre</label>
+              <input type="text" id="fb-name" name="name" class="form-control" placeholder="Escribe tu nombre..." data-i18n-placeholder="modal-label-name" required maxlength="50">
+              <span class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="fb-email" data-i18n="modal-label-email">Correo electrónico</label>
+              <input type="email" id="fb-email" name="email" class="form-control" placeholder="nombre@correo.com" data-i18n-placeholder="modal-label-email" required>
+              <span class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="fb-suggest" data-i18n="modal-question">¿Qué función te gustaría ver?</label>
+              <textarea id="fb-suggest" name="suggestion" rows="4" class="form-control" placeholder="Escribe tu sugerencia..." data-i18n-placeholder="modal-label-suggest" required maxlength="1000" style="resize: vertical;"></textarea>
+              <span class="form-error"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary" data-i18n="btn-submit-feedback">Enviar sugerencia</button>
+          </form>
+        </div>
+
+        <!-- Column 2: Newsletter Sign-up -->
+        <div class="form-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 class="footer-column-title" style="margin-bottom: var(--spacing-sm);" data-i18n="sec8-news-title">Recibe novedades.</h3>
+            <p style="font-size: 0.9rem; color: var(--color-dark-muted); margin-bottom: var(--spacing-lg);" data-i18n="sec8-news-desc">
+              Obtén consejos, actualizaciones y novedades directamente en tu bandeja.
+            </p>
+
+            <form class="newsletter-form" action="#" method="POST" novalidate>
+              <input type="text" name="website_url" autocomplete="off" tabindex="-1" style="display:none">
+              
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="correo@ejemplo.com" data-i18n-placeholder="modal-label-email" required aria-label="Correo electrónico">
+              </div>
+              <button type="submit" class="btn btn-primary" data-i18n="btn-subscribe">Suscribirse a novedades</button>
+            </form>
+          </div>
+          
+          <div style="border-top: 1px solid var(--color-gray-100); padding-top: var(--spacing-md); margin-top: var(--spacing-lg); display: flex; gap: var(--spacing-sm); flex-direction: column;">
+            <div style="display: flex; align-items: center; gap: var(--spacing-xs); font-size: 0.85rem; font-weight: 700; color: var(--color-dark-muted);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec8-future-li1">Vota por nuevas funciones</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--spacing-xs); font-size: 0.85rem; font-weight: 700; color: var(--color-dark-muted);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec8-future-li2">Comparte tus ideas</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--spacing-xs); font-size: 0.85rem; font-weight: 700; color: var(--color-dark-muted);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="sec8-future-li3">Únete a nuestra comunidad</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3: Roadmap Timeline accordion -->
+        <div class="roadmap-accordion-wrapper">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--spacing-sm);">
+            <h3 class="footer-column-title" style="margin-bottom: 0;" data-i18n="sec8-roadmap-title">Hoja de ruta</h3>
+            <span class="roadmap-quarter" data-i18n="sec8-roadmap-badge">Próximamente</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--color-dark-muted); margin-bottom: var(--spacing-lg);" data-i18n="sec8-roadmap-desc">
+            Vista previa de la hoja de ruta.
+          </p>
+
+          <div class="roadmap-container">
+            
+            <div class="roadmap-item">
+              <div class="roadmap-header">
+                <div class="roadmap-title-area">
+                  <span class="roadmap-quarter">Q2 2026</span>
+                  <span class="roadmap-title" data-i18n="roadmap-q2-title">Armonía Avanzada</span>
+                </div>
+                <div class="roadmap-chevron">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              </div>
+              <div class="roadmap-content">
+                <ul class="roadmap-list">
+                  <li class="roadmap-feature"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Transporte Inteligente</li>
+                  <li class="roadmap-feature"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Intercambios Modales</li>
+                  <li class="roadmap-feature"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Dominantes Secundarios</li>
+                  <li class="roadmap-feature"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Reharmonización</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <div class="roadmap-header">
+                <div class="roadmap-title-area">
+                  <span class="roadmap-quarter">Q3 2026</span>
+                  <span class="roadmap-title" data-i18n="roadmap-q3-title">Colaboración y Comentarios</span>
+                </div>
+                <div class="roadmap-chevron">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              </div>
+              <div class="roadmap-content">
+                <ul class="roadmap-list">
+                  <li class="roadmap-feature"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Compartir Enlaces</li>
+                  <li class="roadmap-feature"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Comentarios en vivo</li>
+                  <li class="roadmap-feature"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Versiones de Bocetos</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <div class="roadmap-header">
+                <div class="roadmap-title-area">
+                  <span class="roadmap-quarter">Q4 2026</span>
+                  <span class="roadmap-title" data-i18n="roadmap-q4-title">Aplicación Móvil</span>
+                </div>
+                <div class="roadmap-chevron">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              </div>
+              <div class="roadmap-content">
+                <ul class="roadmap-list">
+                  <li class="roadmap-feature"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>App iOS Oficial</li>
+                  <li class="roadmap-feature"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>App Android Oficial</li>
+                  <li class="roadmap-feature"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Sincronización Offline</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <div class="roadmap-header">
+                <div class="roadmap-title-area">
+                  <span class="roadmap-quarter">Q1 2027</span>
+                  <span class="roadmap-title" data-i18n="roadmap-q1-title">Diseño Seguro</span>
+                </div>
+                <div class="roadmap-chevron">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              </div>
+              <div class="roadmap-content">
+                <ul class="roadmap-list">
+                  <li class="roadmap-feature"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Encriptación Extremo a Extremo</li>
+                  <li class="roadmap-feature"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Auditoría de Datos</li>
+                  <li class="roadmap-feature"><svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Seguridad MFA</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+          
+          <a href="#" class="roadmap-full" style="display: block; text-align: center; margin-top: var(--spacing-md); font-weight: 700; font-size: 0.85rem; color: var(--color-primary);" data-i18n="roadmap-full">Ver hoja de ruta completa →</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        
+        <!-- Brand Info -->
+        <div class="footer-info">
+          <a href="#" class="footer-logo" aria-label="HarmoniGrid Homepage">
+            <img src="https://res.cloudinary.com/dhgifjpkh/image/upload/v1782528861/compressed_53dbe0cc-413d-4913-88ef-b1a4cb6930ee_vjrjve.webp" alt="HarmoniGrid Logo" width="36" height="36">
+            <span>HarmoniGrid</span>
+          </a>
+          <p class="footer-desc" data-i18n="footer-tagline">
+            Empoderando tu viaje musical con herramientas inteligentes.
+          </p>
+          <div class="footer-socials">
+            <!-- Social networks with inline icons -->
+            <a href="#" aria-label="Twitter X"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+            <a href="#" aria-label="GitHub"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Links categories -->
+        <div>
+          <h4 class="footer-column-title" data-i18n="footer-title-product">Producto</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#funciones" data-i18n="nav-features">Funciones</a></li>
+            <li class="footer-link"><a href="#estructura" data-i18n="nav-structure">Estructura</a></li>
+            <li class="footer-link"><a href="#casos" data-i18n="nav-usecases">Casos de uso</a></li>
+            <li class="footer-link"><a href="#precios" data-i18n="nav-pricing">Precios</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-column-title" data-i18n="footer-title-resources">Recursos</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#">Blog</a></li>
+            <li class="footer-link"><a href="#">Tutoriales</a></li>
+            <li class="footer-link"><a href="#">Guías</a></li>
+            <li class="footer-link"><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-column-title" data-i18n="footer-title-company">Compañía</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#aprende">Sobre nosotros</a></li>
+            <li class="footer-link"><a href="#road-feed">Contacto</a></li>
+            <li class="footer-link"><a href="#">Carreras</a></li>
+            <li class="footer-link"><a href="#">Prensa</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter form inside footer -->
+        <div>
+          <h4 class="footer-column-title" data-i18n="footer-title-community">Únete a la comunidad</h4>
+          <div class="footer-newsletter">
+            <p style="font-size: 0.8rem; line-height: 1.4;" data-i18n="footer-newsletter-desc">
+              Recibe consejos, actualizaciones y ofertas exclusivas directamente en tu bandeja.
+            </p>
+            <form class="newsletter-form" action="#" method="POST" novalidate style="margin-top: var(--spacing-sm);">
+              <input type="text" name="website_url" autocomplete="off" tabindex="-1" style="display:none">
+              
+              <div class="newsletter-form-inline">
+                <input type="email" placeholder="Tu correo..." data-i18n-placeholder="modal-label-email" required aria-label="Correo electrónico">
+                <button type="submit" class="btn btn-primary" data-i18n="footer-newsletter-btn">Suscribirme</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div data-i18n="footer-copyright">
+          © 2026 HarmoniGrid. Todos los derechos reservados. Diseñado por músicos para músicos.
+        </div>
+        <div style="display: flex; gap: var(--spacing-md);">
+          <a href="#">Privacidad</a>
+          <a href="#">Términos</a>
+          <a href="#">Seguridad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Entry Script Bootstrapper -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
