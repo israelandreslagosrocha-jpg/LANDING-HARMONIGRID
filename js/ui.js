@@ -213,4 +213,34 @@ export function initializeUI() {
       scrollObserver.observe(target);
     });
   }
+
+  // ==========================================
+  // 8. INTERACTIVE HERO APP MOCKUP TABS
+  // ==========================================
+  const mockupTabBtns = document.querySelectorAll('.mockup-tab-btn');
+  const appMockup = document.querySelector('.app-mockup');
+  
+  if (mockupTabBtns.length > 0 && appMockup) {
+    mockupTabBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const tab = btn.getAttribute('data-tab');
+        if (!tab) return;
+        
+        // Toggle active button styling
+        mockupTabBtns.forEach((b) => {
+          b.classList.remove('btn-light-green', 'mockup-tab-btn--active');
+          b.classList.add('btn-outline');
+          b.style.backgroundColor = '#fff';
+        });
+        
+        btn.classList.add('btn-light-green', 'mockup-tab-btn--active');
+        btn.classList.remove('btn-outline');
+        btn.style.backgroundColor = '';
+        
+        // Swap state classes on the mockup wrapper
+        appMockup.classList.remove('state-capture', 'state-lyrics', 'state-progressions', 'state-scales', 'state-export');
+        appMockup.classList.add(`state-${tab}`);
+      });
+    });
+  }
 }

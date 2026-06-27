@@ -6,6 +6,7 @@
   --color-primary-hover: hsl(103, 82%, 36%); /* #3CA413 */
   --color-primary-light: hsl(103, 82%, 95%); /* #EEFBE7 */
   --color-primary-light-hover: hsl(103, 82%, 90%);
+  --gradient-primary: linear-gradient(135deg, #7ad31b 0%, #47c118 100%); /* Radiant logo gradient */
   
   --color-dark: #111827; /* Gray 900 */
   --color-dark-muted: #4b5563; /* Gray 600 */

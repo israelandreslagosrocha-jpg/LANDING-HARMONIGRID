@@ -413,6 +413,37 @@
         display: none;
       }
     }
+    
+    /* Interactive state overrides for hero mockup */
+    .app-mockup.state-lyrics .mockup-syllable {
+      box-shadow: 0 0 6px #c084fc;
+      border: 1.5px solid #7c3aed;
+      transform: scale(1.08);
+      transition: all var(--transition-fast);
+    }
+    .app-mockup.state-lyrics .mockup-svg-connector line {
+      stroke: #7c3aed;
+      stroke-width: 1.5;
+    }
+    .app-mockup.state-progressions .mockup-purple-divider {
+      width: 2.5px;
+      background-color: #a855f7;
+      opacity: 0.9;
+      box-shadow: 0 0 6px #a855f7;
+      transition: all var(--transition-fast);
+    }
+    .app-mockup.state-scales .mockup-suggestions-banner {
+      border-color: #fcd34d;
+      box-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
+      transform: translateY(-1px);
+      transition: all var(--transition-fast);
+    }
+    .app-mockup.state-export .mockup-btn-export {
+      background-color: #10b981;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+      transform: scale(1.08);
+      transition: all var(--transition-fast);
+    }
   </style>
 </head>
 <body>
@@ -523,18 +554,18 @@
         </div>
 
         <!-- Right Side HTML/CSS dashboard mockup -->
-        <div class="hero-visual anim-slide-up delay-2" style="position: relative;">
+        <div class="hero-visual anim-slide-up delay-2" style="display: flex; align-items: center; gap: var(--spacing-sm); width: 100%;">
           
-          <!-- Interactive Widget tabs beside mockup -->
-          <div class="mockup-side-tabs" style="position: absolute; left: -60px; top: 20%; display: flex; flex-direction: column; gap: var(--spacing-sm); z-index: 10;">
-            <button class="btn btn-light-green" style="padding: 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem;" data-i18n="widget-tab-capture" title="Capturar">Capturar</button>
-            <button class="btn btn-outline" style="padding: 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem; background: #fff;" data-i18n="widget-tab-lyrics" title="Letras">Letras</button>
-            <button class="btn btn-outline" style="padding: 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem; background: #fff;" data-i18n="widget-tab-progressions" title="Progresiones">Progresiones</button>
-            <button class="btn btn-outline" style="padding: 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem; background: #fff;" data-i18n="widget-tab-scales" title="Escalas">Escalas</button>
-            <button class="btn btn-outline" style="padding: 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem; background: #fff;" data-i18n="widget-tab-export" title="Exportar">Exportar</button>
+          <!-- Interactive Widget tabs beside mockup (Flexible flex-row child) -->
+          <div class="mockup-side-tabs" style="display: flex; flex-direction: column; gap: var(--spacing-xs); flex-shrink: 0; width: 68px; z-index: 10;">
+            <button class="btn btn-light-green mockup-tab-btn mockup-tab-btn--active" style="padding: 0.4rem; border-radius: var(--radius-xs); font-size: 0.65rem;" data-tab="capture" data-i18n="widget-tab-capture" title="Capturar">Capturar</button>
+            <button class="btn btn-outline mockup-tab-btn" style="padding: 0.4rem; border-radius: var(--radius-xs); font-size: 0.65rem; background: #fff;" data-tab="lyrics" data-i18n="widget-tab-lyrics" title="Letras">Letras</button>
+            <button class="btn btn-outline mockup-tab-btn" style="padding: 0.4rem; border-radius: var(--radius-xs); font-size: 0.65rem; background: #fff;" data-tab="progressions" data-i18n="widget-tab-progressions" title="Progresiones">Subdivisiones</button>
+            <button class="btn btn-outline mockup-tab-btn" style="padding: 0.4rem; border-radius: var(--radius-xs); font-size: 0.65rem; background: #fff;" data-tab="scales" data-i18n="widget-tab-scales" title="Escalas">Sugerencias</button>
+            <button class="btn btn-outline mockup-tab-btn" style="padding: 0.4rem; border-radius: var(--radius-xs); font-size: 0.65rem; background: #fff;" data-tab="export" data-i18n="widget-tab-export" title="Exportar">Grooves</button>
           </div>
 
-          <div class="app-mockup">
+          <div class="app-mockup" style="flex-grow: 1;">
             <!-- Mockup Header Bar -->
             <div class="mockup-header-bar">
               <div class="mockup-left-nav">

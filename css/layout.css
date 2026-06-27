@@ -70,15 +70,16 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-md); /* Reduced gap to fit Spanish text cleanly */
   list-style: none;
 }
 
 .nav-link {
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.875rem; /* Adjusted slightly down for high-fidelity alignment */
+  font-weight: 600;
   color: var(--color-dark-muted);
   transition: color var(--transition-fast);
+  white-space: nowrap; /* Prevents words like 'Acerca de' from wrapping */
 }
 
 .nav-link:hover {
@@ -88,7 +89,11 @@
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
+}
+
+.nav-actions-mobile {
+  display: none; /* Hidden by default on desktop, displayed in media query only */
 }
 
 /* Mobile Nav Toggle */
