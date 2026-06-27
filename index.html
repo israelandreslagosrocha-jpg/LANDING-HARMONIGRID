@@ -72,8 +72,8 @@
   <!-- Inline App-Mockup-Specific Styles for Maximum Layout Stability (prevents FOUC on mockups) -->
   <style>
     .app-mockup {
-      background-color: #ffffff;
-      border: 1px solid var(--color-gray-200);
+      background-color: #f4f8e9; /* Pale pastel lime/cream */
+      border: 1.5px solid var(--color-gray-200);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-xl);
       padding: var(--spacing-md);
@@ -81,116 +81,335 @@
       color: var(--color-dark);
       position: relative;
       overflow: hidden;
-      aspect-ratio: 16 / 10;
       display: flex;
       flex-direction: column;
+      font-family: 'Outfit', sans-serif;
+      aspect-ratio: 16 / 10.5;
     }
-    .mockup-nav {
+    .mockup-header-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: var(--spacing-sm);
-      border-bottom: 1px solid var(--color-gray-100);
+      padding-bottom: var(--spacing-xs);
+      border-bottom: 1.5px solid rgba(0,0,0,0.06);
       margin-bottom: var(--spacing-sm);
     }
-    .mockup-title {
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-    .mockup-tabs {
+    .mockup-left-nav {
       display: flex;
-      gap: var(--spacing-sm);
-      color: var(--color-dark-muted);
+      align-items: center;
+      gap: 6px;
     }
-    .mockup-tab--active {
+    .mockup-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .mockup-song-title {
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--color-dark);
+      margin-left: 6px;
+    }
+    .mockup-mode-badge {
+      background-color: var(--color-primary-light);
       color: var(--color-primary);
+      padding: 1px 6px;
       font-weight: 700;
-      border-bottom: 2px solid var(--color-primary);
+      border-radius: var(--radius-xs);
+      font-size: 0.6rem;
+    }
+    .mockup-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .mockup-pro-badge {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: #fff;
+      font-size: 0.55rem;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: var(--radius-xs);
+      text-transform: uppercase;
+    }
+    .mockup-btn-export {
+      background-color: var(--color-primary);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-xs);
+      border: none;
+      cursor: pointer;
+    }
+    .mockup-subheader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-sm);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--color-dark-muted);
     }
     .mockup-body {
       display: flex;
       gap: var(--spacing-sm);
       flex-grow: 1;
+      overflow: hidden;
     }
-    .mockup-grid {
-      flex: 3;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      gap: 6px;
-    }
-    .mockup-cell {
-      border: 1px dashed var(--color-gray-200);
-      border-radius: var(--radius-xs);
-      background-color: var(--color-gray-50);
+    .mockup-sidebar-left {
+      width: 82px;
+      background-color: #ffffff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--radius-md);
+      padding: 6px;
       display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+    .mockup-sidebar-scale-box {
+      background-color: #f4f8e9;
+      border-radius: var(--radius-sm);
+      padding: 4px;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .mockup-sidebar-scale-name {
+      font-weight: 800;
+      font-size: 0.6rem;
+      color: var(--color-dark);
+      text-transform: uppercase;
+    }
+    .mockup-sidebar-metric-box {
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius-sm);
+      padding: 6px 4px;
+      text-align: center;
+      background-color: #ffffff;
+    }
+    .mockup-sidebar-metric-val {
+      font-weight: 950;
+      font-size: 1.4rem;
+      line-height: 1.0;
+      color: var(--color-dark);
+      letter-spacing: -1px;
+    }
+    .mockup-sidebar-metric-line {
+      width: 12px;
+      height: 1.5px;
+      background-color: var(--color-dark);
+      margin: 1px auto;
+    }
+    .mockup-switch-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .mockup-switch-item {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      transition: all var(--transition-fast);
-    }
-    .mockup-cell--chord {
-      border: 1px solid hsla(var(--color-primary-hsl), 0.3);
-      background-color: var(--color-primary-light);
-      color: var(--color-primary);
+      font-size: 0.55rem;
       font-weight: 700;
+      color: var(--color-dark-muted);
     }
-    .mockup-cell:hover {
-      border-color: var(--color-primary);
-      background-color: var(--color-primary-light);
+    .mockup-pill-switch {
+      width: 20px;
+      height: 11px;
+      background-color: var(--color-primary);
+      border-radius: var(--radius-full);
+      position: relative;
       cursor: pointer;
     }
-    .mockup-sidebar {
-      flex: 1.2;
-      background-color: var(--color-gray-50);
-      border: 1px solid var(--color-gray-200);
-      border-radius: var(--radius-md);
-      padding: var(--spacing-sm);
+    .mockup-pill-switch::after {
+      content: '';
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      background-color: #ffffff;
+      border-radius: var(--radius-full);
+      top: 2px;
+      right: 2px;
+      transition: all 0.2s;
+    }
+    .mockup-pill-switch--off {
+      background-color: var(--color-gray-300);
+    }
+    .mockup-pill-switch--off::after {
+      right: auto;
+      left: 2px;
+    }
+    .mockup-editor-area {
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
       gap: var(--spacing-xs);
+      overflow-y: auto;
     }
-    .mockup-card-title {
-      font-weight: 800;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--color-dark-muted);
-    }
-    .mockup-detector-result {
-      background-color: var(--color-light);
-      border: 1px solid var(--color-gray-200);
-      border-radius: var(--radius-sm);
+    .mockup-suggestions-banner {
+      background-color: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-radius: var(--radius-md);
       padding: var(--spacing-xs);
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+      box-shadow: var(--shadow-sm);
     }
-    .detector-value {
-      font-size: 0.9rem;
-      font-weight: 800;
-      color: var(--color-primary);
-    }
-    .mockup-suggestions {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      font-size: 0.65rem;
-    }
-    .mockup-suggestion-item {
-      padding: 4px;
-      background-color: var(--color-light);
-      border: 1px solid var(--color-gray-100);
-      border-radius: var(--radius-xs);
+    .mockup-suggestions-banner-text {
+      font-size: 0.55rem;
+      font-weight: 700;
+      color: #b45309;
       display: flex;
       justify-content: space-between;
     }
-    @media (max-width: 600px) {
+    .mockup-suggestions-cards {
+      display: flex;
+      gap: 4px;
+      margin-top: 4px;
+    }
+    .mockup-suggestion-mini-card {
+      background-color: #ffffff;
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: var(--radius-sm);
+      padding: 3px 5px;
+      font-size: 0.5rem;
+      font-weight: 600;
+      color: var(--color-dark);
+      flex: 1;
+    }
+    .mockup-song-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      flex-grow: 1;
+    }
+    .mockup-measure-box {
+      background-color: #ffffff;
+      border: 1.5px solid rgba(0,0,0,0.06);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-sm);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+    .mockup-measure-box--active {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 6px hsla(var(--color-primary-hsl), 0.1);
+    }
+    .mockup-measure-num {
+      position: absolute;
+      top: 4px;
+      left: 6px;
+      font-size: 0.5rem;
+      font-weight: 800;
+      color: var(--color-gray-400);
+    }
+    .mockup-measure-chords {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 4px;
+      position: relative;
+      height: 34px;
+    }
+    .mockup-chord-node {
+      background-color: var(--color-light);
+      border: 1.5px solid var(--color-gray-200);
+      border-radius: var(--radius-sm);
+      padding: 2px 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--color-dark);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 5;
+    }
+    .mockup-chord-node--primary {
+      border-color: var(--color-primary);
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+    }
+    .mockup-chord-note-icon {
+      font-size: 0.45rem;
+      color: var(--color-primary);
+      margin-top: 0px;
+      font-family: sans-serif;
+    }
+    .mockup-purple-divider {
+      position: absolute;
+      width: 1.5px;
+      height: 100%;
+      background-color: #a855f7;
+      top: 0;
+      left: 60%;
+      opacity: 0.3;
+      z-index: 1;
+    }
+    .mockup-measure-alert {
+      background-color: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #d97706;
+      font-size: 0.5rem;
+      font-weight: 700;
+      border-radius: var(--radius-xs);
+      padding: 1px 4px;
+      text-align: center;
+      margin-top: var(--spacing-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+    .mockup-measure-lyrics-row {
+      border-top: 1px solid rgba(0,0,0,0.05);
+      margin-top: var(--spacing-xs);
+      padding-top: 4px;
+      display: flex;
+      justify-content: space-around;
+      position: relative;
+    }
+    .mockup-syllable {
+      font-size: 0.55rem;
+      font-weight: 700;
+      color: var(--color-dark-muted);
+      background-color: #f3f4f6;
+      border-radius: var(--radius-xs);
+      padding: 0px 4px;
+      position: relative;
+      z-index: 4;
+    }
+    .mockup-syllable--highlight {
+      background-color: #f3e8ff;
+      color: #7c3aed;
+      border: 1px dashed #c084fc;
+    }
+    .mockup-measure-box--add {
+      border: 1.5px dashed var(--color-gray-300);
+      background-color: rgba(255,255,255,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      min-height: 80px;
+      border-radius: var(--radius-md);
+    }
+    .mockup-add-plus {
+      font-size: 1.5rem;
+      color: var(--color-gray-400);
+      font-weight: 300;
+    }
+    @media (max-width: 768px) {
       .app-mockup {
         aspect-ratio: auto;
-        height: 320px;
+        height: auto;
+        padding: var(--spacing-sm);
       }
-      .mockup-sidebar {
+      .mockup-sidebar-left {
         display: none;
       }
     }
@@ -316,57 +535,175 @@
           </div>
 
           <div class="app-mockup">
-            <div class="mockup-nav">
-              <div style="display: flex; align-items: center; gap: var(--spacing-xs);">
-                <span style="display: inline-block; width: 8px; height: 8px; background-color: #ef4444; border-radius: var(--radius-full);"></span>
-                <span style="display: inline-block; width: 8px; height: 8px; background-color: #f59e0b; border-radius: var(--radius-full);"></span>
-                <span style="display: inline-block; width: 8px; height: 8px; background-color: #10b981; border-radius: var(--radius-full);"></span>
-                <span class="mockup-title" style="margin-left: var(--spacing-sm);">Mis Sesiones / Harmonigrid</span>
+            <!-- Mockup Header Bar -->
+            <div class="mockup-header-bar">
+              <div class="mockup-left-nav">
+                <span class="mockup-dot" style="background-color: #ef4444;"></span>
+                <span class="mockup-dot" style="background-color: #f59e0b;"></span>
+                <span class="mockup-dot" style="background-color: #10b981;"></span>
+                <span class="mockup-song-title">Mi Canción</span>
+                <span class="mockup-mode-badge">Sol Mixolidio</span>
               </div>
-              <div class="mockup-tabs">
-                <span class="mockup-tab--active">Todos</span>
-                <span>Sin etiqueta</span>
-                <span>Archivados</span>
+              <div class="mockup-header-actions">
+                <span class="mockup-pro-badge">Pro</span>
+                <button class="mockup-btn-export" style="background-color: #10b981; color: white; border: none; font-weight: 700; border-radius: 4px; padding: 2px 8px; font-size: 0.65rem;">Exportar</button>
               </div>
+            </div>
+
+            <!-- Mockup Subheader Info -->
+            <div class="mockup-subheader">
+              <span>Compás: 8 | Tempo: 120 BPM</span>
+              <span>Groove: Pop</span>
             </div>
             
             <div class="mockup-body">
-              <div class="mockup-grid">
-                <!-- Row 1 chords -->
-                <div class="mockup-cell mockup-cell--chord">Lam</div>
-                <div class="mockup-cell"></div>
-                <div class="mockup-cell"></div>
-                <div class="mockup-cell"></div>
-                <!-- Row 2 chords -->
-                <div class="mockup-cell mockup-cell--chord">Rem</div>
-                <div class="mockup-cell"></div>
-                <div class="mockup-cell"></div>
-                <div class="mockup-cell"></div>
-                <!-- Row 3 chords -->
-                <div class="mockup-cell mockup-cell--chord">SolM</div>
-                <div class="mockup-cell"></div>
-                <div class="mockup-cell"></div>
-                <div class="mockup-cell"></div>
-                <!-- Row 4 chords -->
-                <div class="mockup-cell mockup-cell--chord">DoM</div>
-                <div class="mockup-cell"></div>
-                <div class="mockup-cell"></div>
-                <div class="mockup-cell"></div>
-              </div>
-              
-              <div class="mockup-sidebar">
-                <span class="mockup-card-title">Detector de Clave</span>
-                <div class="mockup-detector-result">
-                  <span style="font-size: 0.6rem; color: var(--color-dark-muted);">Clave Detectada</span>
-                  <span class="detector-value">La Menor (Am)</span>
-                  <span style="font-size: 0.55rem; color: var(--color-success); font-weight: 700;">Confianza: Alta (95%)</span>
+              <!-- Sidebar Left controls -->
+              <div class="mockup-sidebar-left">
+                <div class="mockup-sidebar-scale-box">
+                  <span style="font-size: 0.45rem; display: block; color: var(--color-dark-muted);">Tonalidad</span>
+                  <span class="mockup-sidebar-scale-name">Sol Mixo</span>
                 </div>
-                <span class="mockup-card-title">Sugerencias</span>
-                <ul class="mockup-suggestions">
-                  <li class="mockup-suggestion-item"><span>Relativo:</span> <strong>Do Mayor</strong></li>
-                  <li class="mockup-suggestion-item"><span>Modo:</span> <strong>Paralelo</strong></li>
-                  <li class="mockup-suggestion-item"><span>Dominante:</span> <strong>Mi Mayor</strong></li>
-                </ul>
+                
+                <div class="mockup-sidebar-metric-box">
+                  <span style="font-size: 0.45rem; display: block; color: var(--color-dark-muted); text-transform: uppercase;">Métrica</span>
+                  <div class="mockup-sidebar-metric-val">5</div>
+                  <div class="mockup-sidebar-metric-line"></div>
+                  <div class="mockup-sidebar-metric-val">8</div>
+                </div>
+
+                <div class="mockup-switch-group">
+                  <div class="mockup-switch-item">
+                    <span>SUB</span>
+                    <div class="mockup-pill-switch"></div>
+                  </div>
+                  <div class="mockup-switch-item">
+                    <span>RITMO</span>
+                    <div class="mockup-pill-switch"></div>
+                  </div>
+                  <div class="mockup-switch-item">
+                    <span>LETRAS</span>
+                    <div class="mockup-pill-switch"></div>
+                  </div>
+                  <div class="mockup-switch-item" style="border: 1px solid #fcd34d; border-radius: 3px; padding: 1px;">
+                    <span style="color:#b45309;">IDEAS</span>
+                    <div class="mockup-pill-switch"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Main Editor Area -->
+              <div class="mockup-editor-area">
+                
+                <!-- Smart Suggestions Assistant (PRO) banner -->
+                <div class="mockup-suggestions-banner">
+                  <div class="mockup-suggestions-banner-text">
+                    <span>💡 ASISTENTE DE SUGERENCIAS ARMÓNICAS (PRO)</span>
+                    <span style="color: var(--color-primary); cursor: pointer;">Refrescar</span>
+                  </div>
+                  <div class="mockup-suggestions-cards">
+                    <div class="mockup-suggestion-mini-card">
+                      Convertir tríadas en acordes de séptima (Tétradas)
+                    </div>
+                    <div class="mockup-suggestion-mini-card" style="border-left: 2px solid var(--color-primary);">
+                      Añadir color Lidio (#11)
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2x2 Grid of measures -->
+                <div class="mockup-song-grid">
+                  <!-- Compás 1 (Active) -->
+                  <div class="mockup-measure-box mockup-measure-box--active">
+                    <span class="mockup-measure-num">#1 <span style="color: #7c3aed; font-size: 0.45rem;">CUSTOM</span></span>
+                    
+                    <div class="mockup-measure-chords">
+                      <!-- Purple subdivision divider -->
+                      <div class="mockup-purple-divider"></div>
+                      
+                      <!-- Chord node 1 -->
+                      <div class="mockup-chord-node mockup-chord-node--primary">
+                        <span>G7(9)</span>
+                        <span class="mockup-chord-note-icon">♩</span>
+                      </div>
+                      
+                      <!-- Chord node 2 -->
+                      <div class="mockup-chord-node">
+                        <span>Am7</span>
+                        <span class="mockup-chord-note-icon">♪</span>
+                      </div>
+                    </div>
+
+                    <!-- Lyrics connected to chords -->
+                    <div class="mockup-measure-lyrics-row">
+                      <!-- SVG lines connecting syllables to nodes -->
+                      <svg class="mockup-svg-connector" viewBox="0 0 100 30" preserveAspectRatio="none">
+                        <line x1="25" y1="5" x2="25" y2="25" stroke="#c084fc" stroke-width="1" stroke-dasharray="2,2"/>
+                        <line x1="75" y1="5" x2="75" y2="25" stroke="#c084fc" stroke-width="1" stroke-dasharray="2,2"/>
+                      </svg>
+                      <span class="mockup-syllable">no</span>
+                      <span class="mockup-syllable mockup-syllable--highlight">se</span>
+                    </div>
+                  </div>
+
+                  <!-- Compás 2 -->
+                  <div class="mockup-measure-box">
+                    <span class="mockup-measure-num">#2</span>
+                    
+                    <div class="mockup-measure-chords">
+                      <div class="mockup-purple-divider"></div>
+                      <div class="mockup-chord-node">
+                        <span>Cmaj7</span>
+                        <span class="mockup-chord-note-icon">♩</span>
+                      </div>
+                    </div>
+
+                    <!-- Warning indicator -->
+                    <div class="mockup-measure-alert">
+                      Falta 4 corcheas
+                    </div>
+
+                    <!-- Lyrics row -->
+                    <div class="mockup-measure-lyrics-row">
+                      <svg class="mockup-svg-connector" viewBox="0 0 100 30" preserveAspectRatio="none">
+                        <line x1="50" y1="5" x2="50" y2="25" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2,2"/>
+                      </svg>
+                      <span class="mockup-syllable">que</span>
+                      <span class="mockup-syllable">te</span>
+                    </div>
+                  </div>
+
+                  <!-- Compás 3 -->
+                  <div class="mockup-measure-box">
+                    <span class="mockup-measure-num">#3</span>
+                    
+                    <div class="mockup-measure-chords">
+                      <div class="mockup-purple-divider"></div>
+                      <div class="mockup-chord-node">
+                        <span>Dm7</span>
+                        <span class="mockup-chord-note-icon">♩</span>
+                      </div>
+                      <div class="mockup-chord-node">
+                        <span>Fmaj7</span>
+                        <span class="mockup-chord-note-icon">♪</span>
+                      </div>
+                    </div>
+
+                    <div class="mockup-measure-lyrics-row">
+                      <svg class="mockup-svg-connector" viewBox="0 0 100 30" preserveAspectRatio="none">
+                        <line x1="25" y1="5" x2="25" y2="25" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2,2"/>
+                        <line x1="75" y1="5" x2="75" y2="25" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2,2"/>
+                      </svg>
+                      <span class="mockup-syllable">pa-</span>
+                      <span class="mockup-syllable">sa</span>
+                    </div>
+                  </div>
+
+                  <!-- Compás 4 (Add block) -->
+                  <div class="mockup-measure-box--add">
+                    <span class="mockup-add-plus">+</span>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -539,39 +876,27 @@
             <ul class="price-list">
               <li class="price-item">
                 <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-harmonic-schemes">Esquemas armónicos</span>
+                <span data-i18n="feat-max-bars-free">Hasta 20 compases por canción</span>
               </li>
               <li class="price-item">
                 <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-lyrics">Letras e indicaciones</span>
+                <span data-i18n="feat-scales-free">Solo escala mayor y menor básica</span>
               </li>
               <li class="price-item">
                 <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-sync-lyrics">Letras sincronizadas</span>
+                <span data-i18n="feat-meters-free">Métricas simples: 4/4 y 3/4</span>
               </li>
               <li class="price-item">
                 <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-major-scales">Escalas mayores</span>
+                <span data-i18n="feat-repeats-free">Repeticiones y secciones estándar</span>
               </li>
               <li class="price-item">
                 <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-minor-scales">Escalas menores</span>
+                <span data-i18n="feat-lyrics-free">Letras en Modo Libre únicamente</span>
               </li>
               <li class="price-item">
                 <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-sections-org">Organización por secciones</span>
-              </li>
-              <li class="price-item">
-                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-repetitions">Repeticiones de compases</span>
-              </li>
-              <li class="price-item">
-                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-basic-export">Exportación básica (.txt)</span>
-              </li>
-              <li class="price-item">
-                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-max-bars">Hasta 20 compases por canción</span>
+                <span data-i18n="feat-export-free">Exportación básica (texto con acordes)</span>
               </li>
             </ul>
             
@@ -587,23 +912,39 @@
             <ul class="price-list">
               <li class="price-item">
                 <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-live-grid-unlimited">Cuadrícula en vivo ilimitada</span>
+                <span data-i18n="feat-max-bars-pro">Compases y canciones ilimitadas</span>
               </li>
               <li class="price-item">
                 <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-advanced-tools">Herramientas avanzadas</span>
+                <span data-i18n="feat-scales-pro">Escalas avanzadas (Dórico, Locrio #6, Superlocrio, etc.)</span>
               </li>
               <li class="price-item">
                 <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-key-detection">Detección de clave y escala</span>
+                <span data-i18n="feat-meters-pro">Métricas compuestas, amalgamas (5/8, 7/8, 11/8, 13/8) e indicadores personalizados</span>
               </li>
               <li class="price-item">
                 <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-cloud-storage">Almacenamiento en la nube</span>
+                <span data-i18n="feat-subdivisions-pro">Subdivisión de compás (3+2, 3+3+3+2) con sugerencias</span>
               </li>
               <li class="price-item">
                 <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                <span data-i18n="feat-priority-support">Soporte prioritario 24/7</span>
+                <span data-i18n="feat-ties-pro">Ligados de tiempo para extender acordes</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-lyrics-pro">Los 3 modos de letra: Libre, Sílabas conectadas y Rítmica</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-suggestions-pro">Asistente de sugerencias inteligentes (Tétradas, Dominantes Secundarios)</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-clash-pro">Detección de choques armónicos</span>
+              </li>
+              <li class="price-item">
+                <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span data-i18n="feat-export-pro">Exportación profesional (PDF y MIDI de alta calidad)</span>
               </li>
             </ul>
             
@@ -619,26 +960,47 @@
           <h3 class="section-title" style="font-size: 2rem;" data-i18n="feat-harmony-title">Potentes herramientas de armonía a tu alcance.</h3>
           <p class="section-subtitle" style="margin-bottom: var(--spacing-xl);" data-i18n="feat-harmony-desc">Todo lo que necesitas para entender, crear y evolucionar con tu música.</p>
           
-          <div style="display: grid; gap: var(--spacing-md);">
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md);">
             <div style="display: flex; gap: var(--spacing-sm);">
               <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0; width: 40px; height: 40px;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
               <div>
-                <h4 style="font-weight: 700; font-size: 1rem; color: var(--color-dark);" data-i18n="feat-item-detect-title">Detección de armonía</h4>
-                <p style="font-size: 0.875rem; color: var(--color-dark-muted);" data-i18n="feat-item-detect-desc">Detecta la clave y la escala al instante mientras editas tus compases.</p>
+                <h4 style="font-weight: 700; font-size: 1.0rem; color: var(--color-dark);" data-i18n="feat-item-detect-title">Asistente de Sugerencias (PRO)</h4>
+                <p style="font-size: 0.85rem; color: var(--color-dark-muted);" data-i18n="feat-item-detect-desc">Recibe consejos en tiempo real como agregar colores Lidio (#11), sustituciones de tritono o dominantes secundarios.</p>
               </div>
             </div>
             <div style="display: flex; gap: var(--spacing-sm);">
               <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0; width: 40px; height: 40px;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
               <div>
-                <h4 style="font-weight: 700; font-size: 1rem; color: var(--color-dark);" data-i18n="feat-item-scales-title">Escalas y modos</h4>
-                <p style="font-size: 0.875rem; color: var(--color-dark-muted);" data-i18n="feat-item-scales-desc">Explora escalas y modos para cualquier género o combinación.</p>
+                <h4 style="font-weight: 700; font-size: 1.0rem; color: var(--color-dark);" data-i18n="feat-item-scales-title">Rearmonización Emocional</h4>
+                <p style="font-size: 0.85rem; color: var(--color-dark-muted);" data-i18n="feat-item-scales-desc">Explora acordes sugeridos con descriptores de carácter como Épico Dórico, Locrio Espacial o Misticismo Noir.</p>
               </div>
             </div>
             <div style="display: flex; gap: var(--spacing-sm);">
               <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0; width: 40px; height: 40px;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" x2="6" y1="20" y2="4"/><line x1="6" x2="18" y1="20" y2="4"/></svg></div>
               <div>
-                <h4 style="font-weight: 700; font-size: 1rem; color: var(--color-dark);" data-i18n="feat-item-analysis-title">Análisis de progresiones</h4>
-                <p style="font-size: 0.875rem; color: var(--color-dark-muted);" data-i18n="feat-item-analysis-desc">Visualiza y comprende progresiones al instante.</p>
+                <h4 style="font-weight: 700; font-size: 1.0rem; color: var(--color-dark);" data-i18n="feat-item-analysis-title">Sincronización de Letras</h4>
+                <p style="font-size: 0.85rem; color: var(--color-dark-muted);" data-i18n="feat-item-analysis-desc">Vincula sílabas directamente a acordes específicos mediante guías visuales para facilitar el ensayo.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: var(--spacing-sm);">
+              <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0; width: 40px; height: 40px;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"/></svg></div>
+              <div>
+                <h4 style="font-weight: 700; font-size: 1.0rem; color: var(--color-dark);" data-i18n="feat-item-guide-title">Validación Métrico-Rítmica</h4>
+                <p style="font-size: 0.85rem; color: var(--color-dark-muted);" data-i18n="feat-item-guide-desc">La aplicación te alerta si faltan corcheas o negras en tu compás según la métrica elegida.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: var(--spacing-sm);">
+              <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0; width: 40px; height: 40px;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg></div>
+              <div>
+                <h4 style="font-weight: 700; font-size: 1.0rem; color: var(--color-dark);" data-i18n="feat-item-rhythm-title">Subdivisiones de Compás</h4>
+                <p style="font-size: 0.85rem; color: var(--color-dark-muted);" data-i18n="feat-item-rhythm-desc">Visualiza y edita cómo se agrupan los pulsos (ej. 3+2 en 5/8) con líneas moradas divisoras.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: var(--spacing-sm);">
+              <div class="card-icon" style="flex-shrink: 0; margin-bottom: 0; width: 40px; height: 40px;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 3v18M16 3v18M3 12h18"/></svg></div>
+              <div>
+                <h4 style="font-weight: 700; font-size: 1.0rem; color: var(--color-dark);" data-i18n="feat-item-export-title">Ligados de Tiempo (PRO)</h4>
+                <p style="font-size: 0.85rem; color: var(--color-dark-muted);" data-i18n="feat-item-export-desc">Une acordes rítmicamente para mantener la resonancia en compases contiguos sin volver a atacarlos.</p>
               </div>
             </div>
           </div>
