@@ -6,9 +6,21 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare:site": "node scripts/prepare-site.mjs",
+    "prebuild": "npm run prepare:site",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run format:check && npm run test && npm run build",
+    "check:domains": "node scripts/check-domains.mjs",
+    "pretest": "npm run prepare:site",
+    "format": "prettier --write index.html css js scripts tests vite.config.js README.md docs public/privacidad.html",
+    "format:check": "prettier --check index.html css js scripts tests vite.config.js README.md docs public/privacidad.html"
   },
   "devDependencies": {
-    "vite": "^5.0.0"
+    "prettier": "^3.9.9",
+    "vite": "^8.3.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }
