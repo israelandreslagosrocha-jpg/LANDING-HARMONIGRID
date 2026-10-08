@@ -2,6 +2,14 @@
 
 ## Estado
 
+Actualización del 7 de octubre de 2026: la landing está desplegada con GitHub Pages mediante `.github/workflows/ci.yml`. Cada push a `main` ejecuta formato, pruebas, build y auditoría antes de publicar `dist`. La ejecución inicial fue correcta: https://github.com/israelandreslagosrocha-jpg/LANDING-HARMONIGRID/actions/runs/37706758705.
+
+`harmonigrid.com` está asociado al repositorio y GitHub confirmó DNS válido. Hostinger conserva los nameservers: cuatro registros A apuntan a 185.199.108.153, 185.199.109.153, 185.199.110.153 y 185.199.111.153; `www` apunta por CNAME a israelandreslagosrocha-jpg.github.io. La landing responde por HTTP. Está pendiente la emisión del certificado y activar Enforce HTTPS en Settings → Pages. La aplicación .app se montará después por decisión del propietario.
+
+GitHub Pages no aplica las cabeceras configuradas en `vercel.json` ni `public/_headers`; esas configuraciones pertenecen a otros proveedores. Las verificaciones locales de cabeceras no describen las cabeceras de Pages.
+
+El estado siguiente corresponde a la revisión previa al despliegue.
+
 Implementación y build verificados; actualización aprobada para registrarse en `main` y `codex/landing-launch-update`. No se ha realizado despliegue ni cambio de DNS.
 
 **Pendiente externo confirmado el 7 de octubre de 2026:** tanto harmonigrid.com como harmonigrid.app muestran estacionamiento de dominio en Hostinger. La landing no puede llevar a un editor activo en .app hasta conectar ese dominio. La aprobación del commit no sustituye esta conexión.
